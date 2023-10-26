@@ -42,7 +42,9 @@ export function renderAddPostPageComponent({ appEl, onAddPostClick }) {
       const description = appEl.querySelector(".input.textarea");
 
       onAddPostClick({
-        description: description.value,
+        description: description.value
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;"),
         imageUrl: imageUrl,
       });
     });
